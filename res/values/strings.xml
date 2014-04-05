@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tempo Run</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_id">625563237523982 </string>
+    <string name="welcome">Welcome To Tempo Run </string>
+    <string name="title_activity_workout_begin">Workout</string>
+
+    
+    <string-array name="workout_types">
+        <item>Free Run</item>
+        <item>Tempo Based Run</item>
+    </string-array>
+        <string name="workout_type_choose_str">Choose A Workout Type:</string>
+        <string name="beginWorkoutBtn">Begin Workout</string>
+        <string name="strEndWorkout">End Workout</string>
+        <string name="strDistance">Distance</string>
+        <string name="strEmail">Email</string>
+        <string name="strPassword">Password</string>
+        <string name="strPasswordConfirm">Confirm Password</string>
+        <string name="strCreateAccount">Create Account</string>
+</resources>
