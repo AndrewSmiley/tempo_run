@@ -1,4 +1,4 @@
-package come.temporun.dao;
+package com.temporun.dao;
 
 import java.io.IOException;
 import java.net.ConnectException;

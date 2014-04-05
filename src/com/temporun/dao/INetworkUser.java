@@ -1,4 +1,4 @@
-package come.temporun.dao;
+package com.temporun.dao;
 
 import java.util.ArrayList;
 
