@@ -114,6 +114,13 @@ public class WorkoutActivity extends Activity implements
 	
 	public void onWorkoutEndClicked(View v){
 		stopwatch.stop();
+		currentRun.setTime(Long.toString(SystemClock.elapsedRealtime()));
+		runSQLite.updateRunTime(currentRun);
+		Intent endWorkoutIntent = new Intent(this, EndWorkoutActivity.class);
+		startActivity(endWorkoutIntent);
+		
+		
+		
 		
 		
 		

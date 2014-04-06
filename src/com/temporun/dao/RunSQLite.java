@@ -92,5 +92,51 @@ contentValues.put(COL_TIME, "");
 		
 		return run;
 	}
+	
+	public Run getCurrentRun() throws Exception
+	{
+		Run run = new Run();
+		Cursor cursor = getReadableDatabase().rawQuery(SELECT_MOST_RECENT_RUN, null);
+		if(cursor.getCount() != 0 ){
+			cursor.moveToFirst();
+			while(!cursor.isAfterLast()){
+				run.setId(cursor.getInt(0));
+				run.setTime(cursor.getString(2));
+				cursor.moveToNext();
+			}
+			cursor.close();
+		}else{
+			throw new Exception();
+		}
+		
+		return run;
+	}
+	
+	
+	public void updateRunTime(Run run){
+		
+//		String straightSQL = "Update "+RUN_TABLE +" SET "+COL_TIME+"=\""+run.getTime()+"\" where "+COL_ID+"="+run.getId();
+//		getWritableDatabase().rawQuery(straightSQL, null);
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(COL_ID, run.getId());
+		contentValues.put(COL_TIME, run.getTime());
+//		String[] args = new String[1]; 
+//		args[0] = Integer.toString(run.getId());
+		getWritableDatabase().replace(RUN_TABLE, null, contentValues);
+		
+	}
+	
+	
+	public void saveRunDetails(Run run)
+	{
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(COL_ID, run.getId());
+		contentValues.put(COL_NOTES, run.getNotes());
+		contentValues.put(COL_CALORIES, run.getCaloriesBurned());
+		contentValues.put(COL_TIME, run.getTime());
+		getWritableDatabase().replace(RUN_TABLE, null, contentValues);
+		
+		
+	}
 
 }

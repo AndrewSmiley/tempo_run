@@ -45,6 +45,10 @@
             android:name="com.temporun.ui.WorkoutActivity"
             android:label="@string/title_activity_workout_begin" >
         </activity>
+         <activity
+            android:name="com.temporun.ui.EndWorkoutActivity"
+            android:label="@string/title_activity_workout_begin" >
+        </activity>
         <service android:name="LocationLoggerService" 
    android:enabled="true" 
    android:exported="false"

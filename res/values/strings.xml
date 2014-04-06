@@ -31,4 +31,8 @@
         <string name="strWorkoutDetails">Workout Details</string>
         <string name="strTotalTime">Time</string>
         <string name="strCaloriesBurned">Calories Burned</string>
+        <string name="strNotes">Notes</string>
+        <string name="strSaveRun">Save Run</string>
+        <string name="strUnableToFetchRun">Unable To Fetch Run</string>
+        <string name="strRunSaved">Run Saved</string>
 </resources>
