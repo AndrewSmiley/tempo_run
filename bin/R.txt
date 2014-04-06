@@ -599,6 +599,7 @@ int string strPasswordConfirm 0x7f080051
 int string strPreferencesPassword 0x7f080049
 int string strPreferencesUsername 0x7f080048
 int string strSignup 0x7f080055
+int string strUnableToCreateRun 0x7f080056
 int string title_activity_workout_begin 0x7f080046
 int string welcome 0x7f080045
 int string workout_type_choose_str 0x7f08004b

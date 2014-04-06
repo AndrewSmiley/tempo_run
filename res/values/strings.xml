@@ -27,4 +27,8 @@
         <string name="strAccountCreated">Account Created!</string>
         <string name="strLogin">Login</string>
         <string name="strSignup">Sign Up</string>
+        <string name="strUnableToCreateRun">Unable To Start Run! Please Try Again.</string>
+        <string name="strWorkoutDetails">Workout Details</string>
+        <string name="strTotalTime">Time</string>
+        <string name="strCaloriesBurned">Calories Burned</string>
 </resources>

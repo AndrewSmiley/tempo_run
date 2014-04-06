@@ -5,8 +5,8 @@ public class Waypoint {
 		private String longitude;
 		//The latitude of the truck in its current location
 		private String latitude;
-		
 		private long time;
+		private int runID;
 
 		/**
 		 * @return the longitude
@@ -48,6 +48,14 @@ public class Waypoint {
 		 */
 		public void setTime(long time) {
 			this.time = time;
+		}
+
+		public int getRunID() {
+			return runID;
+		}
+
+		public void setRunID(int runID) {
+			this.runID = runID;
 		}
 		
 	

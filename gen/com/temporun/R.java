@@ -1837,6 +1837,7 @@ containing a value of this type.
         public static final int strPreferencesPassword=0x7f080049;
         public static final int strPreferencesUsername=0x7f080048;
         public static final int strSignup=0x7f080055;
+        public static final int strUnableToCreateRun=0x7f080056;
         public static final int title_activity_workout_begin=0x7f080046;
         public static final int welcome=0x7f080045;
         public static final int workout_type_choose_str=0x7f08004b;

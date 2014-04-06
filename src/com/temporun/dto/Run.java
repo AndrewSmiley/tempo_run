@@ -6,6 +6,7 @@ public class Run {
 	private int id;
 	private String time;
 	private Double caloriesBurned;
+	private String userIdentifier;
 	/**
 	 * @return the notes
 	 */
@@ -60,5 +61,11 @@ public class Run {
 	}
 	public void setDistance(Double distance) {
 		this.distance = distance;
+	}
+	public String getUserIdentifier() {
+		return userIdentifier;
+	}
+	public void setUserIdentifier(String userIdentifier) {
+		this.userIdentifier = userIdentifier;
 	}
 }
