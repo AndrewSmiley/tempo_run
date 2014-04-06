@@ -92,5 +92,20 @@ public class MainActivity extends Activity {
           
       }
   }
+  
+  
+  public void onLoginBtnClicked(View v){
+	  
+	  
+	  
+	  
+	  
+  }
+  
+  public void onSignupClicked(View v){
+	  Intent intent = new Intent(this, CreateAccountActivity.class);
+	  startActivity(intent);
+	  
+  }
 
 }

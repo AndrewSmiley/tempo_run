@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Spinner;
 
+import com.facebook.Session;
 import com.temporun.R;
 
 public class WorkoutBeginActivity extends Activity {
@@ -20,6 +21,13 @@ public class WorkoutBeginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_workout_begin);
 		spinner = (Spinner) findViewById(R.id.workoutTypeSpinner);
+		//When we load, we want to check to see if the user is logged in or not
+		 Session session = Session.getActiveSession();
+	     //if they're logged in, bring them to the workout page 
+		 if (session == null | !session.isOpened()) {
+	         Intent mainIntent = new Intent(this, MainActivity.class);
+	         startActivity(mainIntent);
+	      } 
 
 	}
 

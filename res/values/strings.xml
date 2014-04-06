@@ -25,4 +25,6 @@
         <string name="strPasswordConfirm">Confirm Password</string>
         <string name="strCreateAccount">Create Account</string>
         <string name="strAccountCreated">Account Created!</string>
+        <string name="strLogin">Login</string>
+        <string name="strSignup">Sign Up</string>
 </resources>

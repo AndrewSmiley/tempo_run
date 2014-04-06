@@ -10,6 +10,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="72dp"
+        android:onClick="onWorkoutEndClicked"
         android:text="@string/strEndWorkout" />
 
     <Chronometer
