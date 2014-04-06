@@ -10,10 +10,10 @@ public class User {
 	private int userID;
 	private String username;
 	private String password;
-	private String firstName;
-	private String lastName;
-	private int truckID;
-	private long offlineTimestamp;
+//	private String firstName;
+//	private String lastName;
+//	private int truckID;
+//	private long offlineTimestamp;
 	/**
 	 * @return the userID
 	 */
@@ -50,48 +50,48 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	/**
-	 * @return the truckID
-	 */
-	public int getTruckID() {
-		return truckID;
-	}
-	/**
-	 * @param truckID the truckID to set
-	 */
-	public void setTruckID(int truckID) {
-		this.truckID = truckID;
-	}
-	public long getOfflineTimestamp() {
-		return offlineTimestamp;
-	}
-	public void setOfflineTimestamp(long offlineTimestamp) {
-		this.offlineTimestamp = offlineTimestamp;
-	}
+//	/**
+//	 * @return the firstName
+//	 */
+//	public String getFirstName() {
+//		return firstName;
+//	}
+//	/**
+//	 * @param firstName the firstName to set
+//	 */
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
+//	/**
+//	 * @return the lastName
+//	 */
+//	public String getLastName() {
+//		return lastName;
+//	}
+//	/**
+//	 * @param lastName the lastName to set
+//	 */
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
+//	/**
+//	 * @return the truckID
+//	 */
+//	public int getTruckID() {
+//		return truckID;
+//	}
+//	/**
+//	 * @param truckID the truckID to set
+//	 */
+//	public void setTruckID(int truckID) {
+//		this.truckID = truckID;
+//	}
+//	public long getOfflineTimestamp() {
+//		return offlineTimestamp;
+//	}
+//	public void setOfflineTimestamp(long offlineTimestamp) {
+//		this.offlineTimestamp = offlineTimestamp;
+//	}
 	
 	//define properties
 

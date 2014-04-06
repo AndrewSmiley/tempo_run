@@ -1,6 +1,9 @@
 package com.temporun.dao;
 
+import java.io.IOException;
+import java.net.ConnectException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import com.temporun.dto.*;
@@ -15,7 +18,7 @@ public class NetworkUserDAO implements INetworkUser {
     
     @Override
     public ArrayList<User> getAllUsers() throws Exception {
-            String uri = "http://cincyfoodtruckapp.com/mobile_request_handler.php?action=get_all_users";
+            String uri = "http://temporunandroid.com/mobile_request_handler.php?action=get_all_users";
                             
             String response =  networkDAO.sendHTTPGetRequest(uri);
             
@@ -38,9 +41,9 @@ public class NetworkUserDAO implements INetworkUser {
                             thisUser.setUserID(Integer.parseInt(userData[0]));
                             thisUser.setUsername(userData[1]);
                             thisUser.setPassword(userData[2]);
-                            thisUser.setFirstName(userData[3]);
-                            thisUser.setLastName(userData[4]);
-                            thisUser.setTruckID(Integer.parseInt(userData[5]));
+//                            thisUser.setFirstName(userData[3]);
+//                            thisUser.setLastName(userData[4]);
+//                            thisUser.setTruckID(Integer.parseInt(userData[5]));
                     
                             //add the user to the list
                             users.add(thisUser);
@@ -58,7 +61,7 @@ public class NetworkUserDAO implements INetworkUser {
             
             
             //create the query  
-            String query = "http://cincyfoodtruckapp.com/mobile_request_handler.php?action=update_password&new_password="+newPW+"&user_id="+userID;
+            String query = "http://temporunandroid.com/mobile_request_handler.php?action=update_password&new_password="+newPW+"&user_id="+userID;
         	
             //account for whitespace
             URI uri = new URI(query.replace(' ', '+'));
@@ -79,4 +82,26 @@ public class NetworkUserDAO implements INetworkUser {
             
     }
 
+    
+    @Override
+	public void addUser(String username, String password) throws Exception{
+    	String query = "http://temporunandroid.com/mobile_request_handler.php?action=add_new_user&username="+username+"&password="+password;
+    	 //account for whitespace
+        URI uri = new URI(query.replace(' ', '+'));
+		
+    	
+        //send the request 
+        String response =  networkDAO.sendHTTPGetRequest(uri.toString());
+      //check it 
+        if(response.contains("ERROR"))
+        {
+                //determine if an error was thrown from the remote data source
+                throw new Exception();
+        
+        }
+        
+    	
+    	
+    	
+    }
 }

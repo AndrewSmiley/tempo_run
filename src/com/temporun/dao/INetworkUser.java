@@ -1,5 +1,8 @@
 package com.temporun.dao;
 
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import com.temporun.dto.*;
@@ -26,6 +29,16 @@ public interface INetworkUser {
 
 	public void updatePassword(int userID, String newPW)
 			throws Exception;
+	
+	/**
+	 * Method to add a new user to the database
+	 * @param username
+	 * @throws URISyntaxException 
+	 * @throws IOException 
+	 * @throws ConnectException 
+	 * @throws Exception 
+	 */
+	public void addUser(String username, String password) throws URISyntaxException, ConnectException, IOException, Exception;
 
 }
 

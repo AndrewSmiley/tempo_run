@@ -23,11 +23,12 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 	public static final String COL_USER_ID = "User_ID";
 	public static final String COL_EMAIL = "Email";
 	public static final String COL_PASSWORD = "Password";
-	public static final String COL_FIRST_NAME = "First_Name";
-	public static final String COL_LAST_NAME = "Last_Name";
-	public static final String COL_TRUCK_ID = "Truck_ID";
+//	public static final String COL_FIRST_NAME = "First_Name";
+//	public static final String COL_LAST_NAME = "Last_Name";
+////	public static final String COL_TRUCK_ID = "Truck_ID";
 	public static final String COL_OFFLINE_TIMESTAMP = "Offline_Timestamp";
-	public static final String SELECT_ALL_OFFLINE_TRUCKS = "SELECT * FROM "+USER_DB+" WHERE "+COL_OFFLINE_TIMESTAMP+" IS NOT NULL";
+	public static final String SELECT_LAST_MENU_ITEM = "SELECT * FROM "+USER_DB+ " ORDER BY "+COL_USER_ID+" DESC LIMIT 1";
+public static final String SELECT_ALL_OFFLINE_USERS= "SELECT * FROM "+USER_DB+" WHERE "+COL_OFFLINE_TIMESTAMP+" IS NOT NULL";
 
 	
 	
@@ -39,9 +40,9 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("Create Table " + USER_DB + " (" + COL_USER_ID
-				+ " INTEGER PRIMARY KEY , " + COL_EMAIL + " TEXT, "
-				+ COL_PASSWORD + " TEXT, " + COL_FIRST_NAME + " TEXT, "
-				+ COL_LAST_NAME + " TEXT, "+COL_TRUCK_ID+" INTEGER, "+COL_OFFLINE_TIMESTAMP+" TEXT);");
+				+ " INTEGER PRIMARY KEY, " + COL_EMAIL + " TEXT, "
+				+ COL_PASSWORD + " TEXT, " 
+				 +COL_OFFLINE_TIMESTAMP+" TEXT);");
 
 	}
 
@@ -60,9 +61,6 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 			contentValues.put(COL_USER_ID, users.get(i).getUserID());
 			contentValues.put(COL_EMAIL, users.get(i).getUsername());
 			contentValues.put(COL_PASSWORD, users.get(i).getPassword());
-			contentValues.put(COL_FIRST_NAME, users.get(i).getFirstName());
-			contentValues.put(COL_LAST_NAME, users.get(i).getLastName());
-			contentValues.put(COL_TRUCK_ID,users.get(i).getTruckID());
 			getWritableDatabase().replace(USER_DB, null, contentValues);
 			
 
@@ -148,12 +146,12 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 				user.setUserID(cursor.getInt(0));
 				user.setUsername(cursor.getString(1));
 				user.setPassword(cursor.getString(2));
-				user.setFirstName(cursor.getString(3));
-				if(cursor.getString(4) != null)
-				{
-					user.setLastName(cursor.getString(4));
-				}
-				user.setTruckID(cursor.getInt(5));
+//				user.setFirstName(cursor.getString(3));
+//				if(cursor.getString(4) != null)
+//				{
+//					user.setLastName(cursor.getString(4));
+//				}
+//				user.setTruckID(cursor.getInt(5));
 				cursor.moveToNext();
 			}
 			
@@ -175,9 +173,6 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 		contentValues.put(COL_USER_ID, user.getUserID());
 		contentValues.put(COL_EMAIL, user.getUsername());
 		contentValues.put(COL_PASSWORD, user.getPassword());
-		contentValues.put(COL_FIRST_NAME, user.getFirstName());
-		contentValues.put(COL_LAST_NAME, user.getLastName());
-		contentValues.put(COL_TRUCK_ID,user.getTruckID());
 		contentValues.put(COL_OFFLINE_TIMESTAMP, timestamp.toString());
 		getWritableDatabase().replace(USER_DB, null, contentValues);
 		
@@ -188,7 +183,7 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 	@Override
 	public ArrayList<User> getAllOfflineUsers() throws Exception {
 		ArrayList<User> users = new ArrayList<User>();
-		Cursor cursor = getWritableDatabase().rawQuery(SELECT_ALL_OFFLINE_TRUCKS, null);
+		Cursor cursor = getWritableDatabase().rawQuery(SELECT_ALL_OFFLINE_USERS, null);
 		
 		
 		// iterate over the result
@@ -202,12 +197,7 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 				user.setUserID(cursor.getInt(0));
 				user.setUsername(cursor.getString(1));
 				user.setPassword(cursor.getString(2));
-				user.setFirstName(cursor.getString(3));
-				if(cursor.getString(4) != null)
-				{
-					user.setLastName(cursor.getString(4));
-				}
-				user.setTruckID(cursor.getInt(5));
+//				user.setTruckID(cursor.getInt(5));
 				users.add(user);
 				cursor.moveToNext();
 			}
@@ -221,4 +211,25 @@ public class UserServiceSQLite extends SQLiteOpenHelper implements
 		return users;
 
 }
+
+	@Override
+	public void addOfflineUser(String username, String password) {
+		Date now = new Date();
+		Timestamp timestamp = new Timestamp(now.getTime());
+	
+		ContentValues contentValues = new ContentValues();
+//		contentValues.put(COL_USER_ID, user.getUserID());
+		contentValues.put(COL_EMAIL, username);
+		contentValues.put(COL_PASSWORD, password);
+		contentValues.put(COL_OFFLINE_TIMESTAMP, timestamp.toString());
+		getWritableDatabase().replace(USER_DB, null, contentValues);
+		
+
+		
 	}
+
+		
+	}
+	
+	
+	

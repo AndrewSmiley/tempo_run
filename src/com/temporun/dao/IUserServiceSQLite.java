@@ -55,4 +55,11 @@ public interface IUserServiceSQLite {
 	 */
 	public ArrayList<User> getAllOfflineUsers() throws Exception;
 	
+	/**
+	 * Method to add a user to the SQLite DB if they are not able to send the http request to add them to the server
+	 * @param username
+	 * @param Email
+	 */
+	public void addOfflineUser(String username, String password);
+	
 }

@@ -7,7 +7,10 @@
     <string name="app_id">625563237523982 </string>
     <string name="welcome">Welcome To Tempo Run </string>
     <string name="title_activity_workout_begin">Workout</string>
-
+	<string name="strGenericError">An Error Has Occurred</string>
+    <string name="strPreferencesUsername">username</string>
+    <string name="strPreferencesPassword">password</string>
+    <string name="strBadUsernameOrPassword">Login Failed! Bad Username or Password!</string>
     
     <string-array name="workout_types">
         <item>Free Run</item>
@@ -21,4 +24,5 @@
         <string name="strPassword">Password</string>
         <string name="strPasswordConfirm">Confirm Password</string>
         <string name="strCreateAccount">Create Account</string>
+        <string name="strAccountCreated">Account Created!</string>
 </resources>
